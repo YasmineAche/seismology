@@ -15,6 +15,8 @@ The projects in this repository were developed while working with real seismolog
 - [Contributing](#contributing)
 - [License](#license)
 
+## Repository Structure
+
 >**Data_Converters**
 
 Python tools for converting seismic data between different formats.
@@ -25,9 +27,9 @@ Examples include:
 
 Python scripts for working with geographic and seismic data and producing maps and visualizations using tools such as:
 
-++ GeoPandas
-++ PyGMT
-++ Pandas
++ GeoPandas
++ PyGMT
++ Pandas
 
 ## Technologies
 
