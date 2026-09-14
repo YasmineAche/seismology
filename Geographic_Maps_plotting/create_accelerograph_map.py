@@ -13,7 +13,7 @@ from shapely.geometry import Polygon
 
     Usage:
     - Run the script to generate the map.
-    - The generated map is saved as 'Reseau National daccelerographe.png' in the current directory.
+    - The generated map is saved as 'Réseau National daccélérographes.png' in the current directory.
 
     Prerequisites:
     - Ensure that the required Python libraries, including Pandas, PyGMT, Geopandas, and Shapely, are installed.
@@ -46,7 +46,7 @@ from shapely.geometry import Polygon
     Date: [June 5, 2023]
 """
 
-# Reading excel files + creation of a data frames
+# Reading Excel files + creation of a data frames
 data_frame_ETNA2 = pd.DataFrame(data=pd.read_excel("ETNA2.xlsx"))
 data_frame_ETNA = pd.DataFrame(data=pd.read_excel("ETNA.xlsx"))
 
@@ -82,7 +82,7 @@ def create_accelerograph_map():
         water="LIGHTSKYBLUE1",
         rivers=[
             "a/0.2p,LIGHTSKYBLUE1,solid"
-        ],  # a:all rivers and canals, r:all perminnent rivers
+        ],  # a:all rivers and canals, r:all permanent rivers
         lakes="skyblue",
         frame=["a2f1"],  # plot frame and title , f:frame, a:annotation, g:gread)
         #     Td='jTL+o1.1c+w0.8c+lO,E,S,N+o-0.1c/3c', #north arrow             ################# This or
@@ -142,7 +142,7 @@ def create_accelerograph_map():
         font="8p,ZapfChancery-MediumItalic,black",
     )
 
-    ########## PLOT_STATIONs #####################
+    ########## PLOT STATIONS #####################
     nombre_ETNA2 = len(data_frame_ETNA2)  # Calculate number of stations
     fig.plot(
         x=data_frame_ETNA2.LONG,
@@ -170,7 +170,7 @@ def create_accelerograph_map():
 
     # scale bar
     # f: fancy scale (without +f a simple one line scale)
-    # +u:add distence unit +l:add scale title (+ab to locate it b bottom, r right...)
+    # +u:add distance unit +l:add scale title (+ab to locate it b bottom, r right...)
     with pygmt.config(FONT_ANNOT_PRIMARY="4p"):
         fig.basemap(map_scale="jBR+o9.2c/0.3c+w50k+f+u")  # scale bar
 
@@ -207,5 +207,5 @@ def create_accelerograph_map():
 
     fig.savefig("Reseau National daccelerographe.png", dpi=600)
 
-
-create_accelerograph_map()
+if __name__ == "__main__":
+    create_accelerograph_map()
