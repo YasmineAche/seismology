@@ -6,13 +6,10 @@ The projects in this repository were developed while working with real seismolog
 
 ## Table of Contents
 
-- [Repository Structure](#repository_structure)
+- [Repository Structure](#repository-structure)
 - [Technologies](#technologies)
-
-- [Programs](#programs)
+- [Technical Scope](#technical-scope)
 - [Requirements](#requirements)
-- [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Repository Structure
@@ -42,41 +39,23 @@ Python scripts for working with geographic and seismic data and producing maps a
 - NumPy
 - Seismic data formats such as EVT, MiniSEED, and SAC
 
-## Programs
+## Technical Scope
 
-Here are some of the programs and scripts available in this repository:
+The projects in this repository cover:
 
-- [EVT_to_Matlab_converter.py](EVT_to_Matlab_converter.py): This program converts seismic data in 'kinemetrics_evt' format to MATLAB .mat files using ObsPy and SciPy.
-
-_Feel free to contribute by adding your own seismology-related Python programs._
+- Processing scientific and seismic datasets
+- Converting seismic data between different formats
+- Working with specialized scientific Python libraries
+- Geographic data processing and visualization
+- Developing Python tools for engineering and scientific workflows
+- Automating data-processing tasks
 
 ## Requirements
 
-Before using the programs in this repository, make sure you have the following requirements installed:
+Python 3.x is required.
 
-- Python 3.x
-- Required Python libraries (specified in individual program README files)
-
-You can install Python libraries using `pip` as needed.
-
-## Usage
-
-Each program in this repository comes with its own README file that explains how to use it. Please refer to the specific program's README for detailed usage instructions.
-
-## Contributing
-
-We welcome contributions from the seismology community! If you have Python programs or scripts related to seismology that you'd like to share, please follow these steps:
-
-1. Fork this repository.
-2. Create a new branch for your contributions.
-3. Add your programs or scripts to the repository.
-4. Create a pull request.
-
-Your contributions will be reviewed, and if they align with the repository's goals, they will be merged.
+Individual projects may require additional Python packages. Refer to the documentation within each project for specific dependencies and usage instructions.
 
 ## Licence
 
 This repository is licensed under the [MIT License](LICENSE.md).
-
-You provide proper attribution to the original author (source) by mentioning the author's name in your project or derivative work.
-
