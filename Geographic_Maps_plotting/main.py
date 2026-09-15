@@ -47,9 +47,9 @@ from shapely.geometry import Polygon
 """
 
 # Reading Excel files + creation of a data frames
-data_frame_ETNA2 = pd.DataFrame(data=pd.read_excel("ETNA2.xlsx"))
-data_frame_ETNA = pd.DataFrame(data=pd.read_excel("ETNA.xlsx"))
-
+data_frame_stations_a = pd.DataFrame(data=pd.read_excel("stations_type_A.xlsx"))
+data_frame_stations_b = pd.DataFrame(data=pd.read_excel("stations_type_B.xlsx"))
+print("Reading excel files and creation of a data frames complete")
 
 
 def create_accelerograph_map():
@@ -109,7 +109,7 @@ def create_accelerograph_map():
     for index, row in wilaya_df.iterrows():
         wilaya_name.append(
             {
-                "name": row["name"],
+                "name": row["name_fr"],
                 "center": row["geometry"].centroid,
                 "Geometry": row["geometry"],
             }
@@ -142,20 +142,20 @@ def create_accelerograph_map():
     )
 
     ########## PLOT STATIONS #####################
-    nombre_etna2 = len(data_frame_ETNA2)  # Calculate number of stations
+    nombre_etna2 = len(data_frame_stations_a)  # Calculate number of stations
     fig.plot(
-        x=data_frame_ETNA2.LONG,
-        y=data_frame_ETNA2.LAT,
+        x=data_frame_stations_a.LONG,
+        y=data_frame_stations_a.LAT,
         style="i0.15c",
         fill="red",
         pen="gray",
         label=f"{nombre_etna2} ETNA-2",
     )
 
-    nombre_etna = len(data_frame_ETNA)  # Calculate number of stations
+    nombre_etna = len(data_frame_stations_b)  # Calculate number of stations
     fig.plot(
-        x=data_frame_ETNA.LONG,
-        y=data_frame_ETNA.LAT,
+        x=data_frame_stations_b.LONG,
+        y=data_frame_stations_b.LAT,
         style="i0.15c",
         fill="green",
         pen="gray",
@@ -192,7 +192,7 @@ def create_accelerograph_map():
 
     ########### Inset #############
     # Create an inset
-    with fig.inset(position="g-1.32/32.025+w0.5c+o0.1c", margin=0, box="+p1p,gold"):
+    with fig.inset(position="g-1.32/32.025+w0.5c+o0.1c", clearance=0, box="+p1p,gold"):
         # Create a figure in the inset using coast.
         fig.coast(
             region="g",
