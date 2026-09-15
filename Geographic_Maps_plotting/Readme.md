@@ -1,6 +1,6 @@
 # Accelerograph Map Creator
 
-This Python script, `create_accelerograph_map.py`, creates a detailed map of North Algeria with various elements and annotations. It uses PyGMT, Pandas, Geopandas, and other libraries to generate this map, which can be used for a wide range of geographical presentations.
+This Python script, `main.py`, creates a detailed map of North Algeria with various elements and annotations. It uses PyGMT, Pandas, Geopandas, and other libraries to generate this map, which can be used for a wide range of geographical presentations.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ Before running the script, ensure that you have the following prerequisites inst
 
 ## Usage
 
-1. Clone this repository to your local machine or download the `create_accelerograph_map.py` script.
+1. Clone this repository to your local machine or download the `main.py` script.
 
 2. Ensure you have the necessary Excel files. The script expects two Excel files:
    - `ETNA2.xlsx`
@@ -25,9 +25,9 @@ Before running the script, ensure that you have the following prerequisites inst
    The Excel files should have these exact column names: ID, Wilaya, LAT, and LONG. See the table below:
    | ID    | Wilaya  | LAT   |   LONG  |     
    | ----- |:-------:| -----:| -------:|
-   | ID1   | Wilaya1 | 1.0   |   2.0   |
-   | ID2   | Wilaya2 | 1.1   |   2.1   |
-   | ID3   | Wilaya3 | 1.2   |   2.2   |
+   | ID-1   | Wilaya1 | 1.0   |   2.0   |
+   | ID-2   | Wilaya2 | 1.1   |   2.1   |
+   | ID-3   | Wilaya3 | 1.2   |   2.2   |
 
    `IMPORTANT: Make sure that the float numbers are written with a point "." and not a comma ",".`
 
@@ -40,7 +40,7 @@ Before running the script, ensure that you have the following prerequisites inst
 5. Run the script using your Python interpreter.
 
    ```bash
-   python create_accelerograph_map.py
+   python main.py
    ```
 
 6. The script will create a map and save it as `Reseau National daccelerographe.png` in the current working directory.
