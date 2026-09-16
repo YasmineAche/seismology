@@ -217,7 +217,7 @@ def create_stations_map():
     ########### logo #############
     fig.image(
         imagefile="logo.png",
-        position="jTR+o0.1c/0.2c+w1c",
+        position="jTR+o0.1c/0.1c+w1c",
         box=False,
     )
     print("Adding logo complete")
