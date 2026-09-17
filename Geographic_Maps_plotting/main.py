@@ -4,6 +4,10 @@ import datetime
 import geopandas as gpd
 from pygmt.params import Position
 from shapely.geometry import Polygon
+import json
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
 
 """
     Generate a detailed map of northern Algeria and its accelerograph stations.
@@ -68,10 +72,6 @@ from shapely.geometry import Polygon
     Original version: June 5, 2023
 """
 
-# Reading Excel files + creation of a data frames
-data_frame_stations_a = pd.DataFrame(data=pd.read_excel("stations_type_A.xlsx"))
-data_frame_stations_b = pd.DataFrame(data=pd.read_excel("stations_type_B.xlsx"))
-print("Reading excel files and creation of a data frames complete")
 
 def create_stations_map(df_stations_a, df_stations_b, config):
     """
@@ -93,6 +93,7 @@ def create_stations_map(df_stations_a, df_stations_b, config):
 
     Returns:
     None
+        The generated map is saved to the output path specified in config.json.
     """
     xmin = config["map_region"]["xmin"]
     xmax = config["map_region"]["xmax"]
@@ -116,7 +117,7 @@ def create_stations_map(df_stations_a, df_stations_b, config):
             "a/0.2p,LIGHTSKYBLUE1,solid"
         ],  # a:all rivers and canals, r:all permanent rivers
         lakes="skyblue",
-        frame=["a2f1"],  # plot frame and title , f:frame, a:annotation, g:grid)
+        frame=["a2f1"],  # plot frame and title , f:frame, a:annotation, g:grid
         Td='jTL+o1.5c+w0.5c+lO,E,S,N+o-0.1c/3c', #north arrow
     )
     ######### Title #############
@@ -131,7 +132,7 @@ def create_stations_map(df_stations_a, df_stations_b, config):
     ############ Adding wilaya names #################
     # Extract information about Wilayas
     wilaya_name = []
-    for index, row in wilaya_df.iterrows():
+    for _, row in wilaya_df.iterrows():
         wilaya_name.append(
             {
                 "name": row["name_fr"],
@@ -189,20 +190,20 @@ def create_stations_map(df_stations_a, df_stations_b, config):
     print("Adding other countries' names complete")
 
     ########## PLOT STATIONS #####################
-    number_of_stations_a = len(data_frame_stations_a)  # Calculate number of stations
+    number_of_stations_a = len(df_stations_a)  # Calculate number of stations
     fig.plot(
-        x=data_frame_stations_a.LONG,
-        y=data_frame_stations_a.LAT,
+        x=df_stations_a.LONG,
+        y=df_stations_a.LAT,
         style="i0.15c",
         fill="red",
         pen="gray",
         label=f"{number_of_stations_a} Station A",
     )
 
-    number_of_stations_b = len(data_frame_stations_b)  # Calculate number of stations
+    number_of_stations_b = len(df_stations_b)  # Calculate number of stations
     fig.plot(
-        x=data_frame_stations_b.LONG,
-        y=data_frame_stations_b.LAT,
+        x=df_stations_b.LONG,
+        y=df_stations_b.LAT,
         style="i0.15c",
         fill="green",
         pen="gray",

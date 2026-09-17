@@ -1,0 +1,16 @@
+{
+    "wilaya_shapefile": "Shapefiles_69_wilayas_cleaned/wilayas.shp",
+    "stations_type_a": "stations_type_A.xlsx",
+    "stations_type_b": "stations_type_B.xlsx",
+    "logo": "logo.png",
+    "output": "my map.png",
+
+    "map_region": {
+        "xmin": -2.6,
+        "xmax": 9,
+        "ymin": 32,
+        "ymax": 38
+    },
+
+    "output_dpi": 600
+}
