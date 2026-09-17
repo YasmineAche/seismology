@@ -94,7 +94,10 @@ def create_stations_map(df_stations_a, df_stations_b, config):
     Returns:
     None
     """
-    xmin, xmax, ymin, ymax = [-2.6, 9, 32, 38]
+    xmin = config["map_region"]["xmin"]
+    xmax = config["map_region"]["xmax"]
+    ymin = config["map_region"]["ymin"]
+    ymax = config["map_region"]["ymax"]
     region = [xmin, xmax, ymin, ymax]
 
     fig = pygmt.Figure()
