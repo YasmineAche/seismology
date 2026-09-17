@@ -124,11 +124,7 @@ def create_stations_map(df_stations_a, df_stations_b, config):
     print("Adding title complete")
 
     ########### Adding Wilayas ###############
-    # Path to the shape file
-    map_file = "Shapefiles_69_wilayas_cleaned/wilayas.shp"
-
-    # Read and plot the wilayas
-    wilaya_df = gpd.read_file(filename=map_file)
+    wilaya_df = gpd.read_file(filename=BASE_DIR / config["wilaya_shapefile"])
     fig.plot(data=wilaya_df, pen="IVORY3")
     print("Plotting of wilayas complete")
 
