@@ -240,7 +240,7 @@ def create_stations_map(df_stations_a, df_stations_b, config):
 
     ########### logo #############
     fig.image(
-        imagefile="logo.png",
+        imagefile=BASE_DIR / config["logo"],
         position="jTR+o0.1c/0.1c+w1c",
         box=False,
     )
