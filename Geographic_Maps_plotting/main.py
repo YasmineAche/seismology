@@ -265,4 +265,15 @@ def create_stations_map(df_stations_a, df_stations_b, config):
     print("Map created and saved successfully")
 
 if __name__ == "__main__":
-    create_stations_map()
+    with open(BASE_DIR / "config.json", "r", encoding="utf-8") as file:
+        config = json.load(file)
+
+    stations_a_file = BASE_DIR / config["stations_type_a"]
+    stations_b_file = BASE_DIR / config["stations_type_b"]
+
+    # Reading Excel files + creation of a data frames
+    df_stations_a = pd.DataFrame(data=pd.read_excel(stations_a_file))
+    df_stations_b = pd.DataFrame(data=pd.read_excel(stations_b_file))
+    print("Reading excel files and creation of a data frames complete")
+
+    create_stations_map(df_stations_a, df_stations_b, config)
