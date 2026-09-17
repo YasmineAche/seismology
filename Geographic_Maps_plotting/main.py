@@ -257,7 +257,7 @@ def create_stations_map(df_stations_a, df_stations_b, config):
             water="white",
             dcw="DZ+gred3",
         )
-    print("Adding insert complete")
+    print("Adding inset complete")
 
     ########### Show and save map #############
     fig.savefig("my map.png", dpi=600)
