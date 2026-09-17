@@ -260,7 +260,7 @@ def create_stations_map(df_stations_a, df_stations_b, config):
     print("Adding inset complete")
 
     ########### Show and save map #############
-    fig.savefig("my map.png", dpi=600)
+    fig.savefig(BASE_DIR / config["output"], dpi=config["output_dpi"])
     fig.show()
     print("Map created and saved successfully")
 
