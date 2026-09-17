@@ -6,45 +6,66 @@ from pygmt.params import Position
 from shapely.geometry import Polygon
 
 """
-    Generate a detailed map of North Algeria with various elements and annotations.
-
-    This script uses the PyGMT library to create a map that includes coastlines, borders, 
-    country names, sea names, station locations, a legend, and more. It also adds information
-    about Wilayas and stations in Algeria. The map is then saved as an image file.
-
-    Usage:
-    - Run the script to generate the map.
-    - The generated map is saved as 'Réseau National daccélérographes.png' in the current directory.
-
-    Prerequisites:
-    - Ensure that the required Python libraries, including Pandas, PyGMT, Geopandas, and Shapely, are installed.
-    - Prepare two Excel files ('ETNA2.xlsx' and 'ETNA.xlsx') with station data. 
-      These files should be located in the directory '/Users/user/Desktop/programs_of_the_graphical_interface/'.
-
-    Elements and Annotations:
-    - The map includes the following elements:
-        - Coastlines with specified attributes.
-        - National borders.
-        - Highlighted map of Algeria.
-        - Rivers, lakes, and frames.
-        - A title for the map.
-        - A north arrow (rose) indicating directions.
-        - Wilayas (administrative divisions) displayed with their names.
-        - Additional text annotations for Algeria, Morocco, Tunisia, and the Mediterranean Sea.
-        - Plotting of stations with symbols and colors.
-        - A legend indicating map scale, station keys, and a map of Algeria within the world map.
-        - A scale bar for reference.
-        - The script also adds a version number and a logo.
-
-    Map Region:
-    - The map region is defined by specifying 'xmin', 'xmax', 'ymin', and 'ymax' coordinates.
-    - You can adjust these values to focus on a specific geographic area.
-
-    Example:
-    To generate the map, run the script. The resulting map image will be saved in the current directory.
-
-    Author: [Yasmine ACHEMINE]
-    Date: [June 5, 2023]
+    Generate a detailed map of northern Algeria and its accelerograph stations.
+    
+    The script uses PyGMT, GeoPandas, Pandas, and Shapely to generate a
+    geographic map containing:
+    
+    - Coastlines and national borders
+    - Administrative boundaries of Algerian Wilayas
+    - Wilaya names
+    - Country and sea labels
+    - Accelerograph station locations
+    - A legend identifying station types
+    - A scale bar
+    - A north arrow
+    - An Algeria location inset
+    - A logo and generation date
+    
+    Configuration
+    -------------
+    
+    Map settings, input files, and output settings are stored in
+    config.json. This keeps configuration separate from the map
+    generation logic.
+    
+    The config.json file defines:
+    
+    - Paths to the Wilaya shapefile
+    - Paths to the two station Excel files
+    - Logo path
+    - Output image path
+    - Map geographic boundaries
+    - Output resolution in DPI
+    
+    Input files
+    -----------
+    
+    The script expects:
+    
+    - Two Excel files containing station information
+    - A shapefile containing the Algerian Wilayas
+    - A logo image
+    
+    The paths to these files are specified in config.json.
+    
+    Station Excel files must contain at least the following columns:
+    
+    - LAT: station latitude
+    - LONG: station longitude
+        
+    Usage
+    -----
+    
+    Run the script directly:
+    
+        python main.py
+    
+    The generated map is saved to the output path specified in
+    config.json.
+    
+    Author : Yasmine Achemine
+    Original version: June 5, 2023
 """
 
 # Reading Excel files + creation of a data frames
