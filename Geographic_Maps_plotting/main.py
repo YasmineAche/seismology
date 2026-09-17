@@ -73,8 +73,7 @@ data_frame_stations_a = pd.DataFrame(data=pd.read_excel("stations_type_A.xlsx"))
 data_frame_stations_b = pd.DataFrame(data=pd.read_excel("stations_type_B.xlsx"))
 print("Reading excel files and creation of a data frames complete")
 
-
-def create_stations_map():
+def create_stations_map(df_stations_a, df_stations_b, config):
     """
     Create a map of North Algeria with various elements and annotations.
 
