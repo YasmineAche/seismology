@@ -84,7 +84,12 @@ def create_stations_map(df_stations_a, df_stations_b, config):
       and a map of the world with Algeria highlighted.
 
     Parameters:
-    None
+    df_stations_a : pandas.DataFrame
+        DataFrame containing Station A information.
+    df_stations_b : pandas.DataFrame
+        DataFrame containing Station B information.
+    config : dict
+        Configuration loaded from config.json.
 
     Returns:
     None
